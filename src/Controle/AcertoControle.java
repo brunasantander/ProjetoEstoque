@@ -5,16 +5,16 @@ import Entidade.Produto;
 
 import java.util.Date;
 
-public class ProdutoControle
+public class AcertoControle
 {
 
-    public boolean salvarAcerto(Long id, Date data, int total, char tipo, String motivo, Produto produto) {
-        Acerto acerto = new Acerto(id, data, total, tipo, motivo, produto);
+    public static boolean gravar(Long id, int total, char tipo, String motivo, Produto produto) {
+        Acerto acerto = new Acerto(id, total, tipo, motivo, produto);
 
         System.out.println(acerto);
 
         if (acerto.validaMotivo(acerto.getMotivo())) {
-            if(acerto.validaTotal(acerto.getTotal())){
+            if(produto.validaTotal(acerto.getTotal(), tipo, produto.getQuantidade())){
                 if(produto.atualizarEstoque(acerto)) {
                     System.out.println("OK");
                     return acerto.gravar();

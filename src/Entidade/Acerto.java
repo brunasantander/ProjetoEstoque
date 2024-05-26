@@ -6,7 +6,6 @@ import java.util.Date;
 
 public class Acerto {
     private Long id;
-    private Date data;
     private int total;
     private char tipo;
     private String motivo;
@@ -15,9 +14,8 @@ public class Acerto {
     public Acerto() {
     }
 
-    public Acerto(Long id, Date data, int total, char tipo, String motivo, Produto produto) {
+    public Acerto(Long id, int total, char tipo, String motivo, Produto produto) {
         this.id = id;
-        this.data = data;
         this.total = total;
         this.tipo = tipo;
         this.motivo = motivo;
@@ -30,14 +28,6 @@ public class Acerto {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public int getTotal() {
@@ -74,10 +64,6 @@ public class Acerto {
 
     public boolean validaMotivo(String motivo) {
         return !motivo.isEmpty();
-    }
-
-    public boolean validaTotal(int total) {
-        return total >= 0;
     }
 
     public boolean gravar () {

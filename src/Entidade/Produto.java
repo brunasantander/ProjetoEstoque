@@ -42,6 +42,27 @@ public class Produto
         this.quantidade = quantidade;
     }
 
+    public static boolean validaTotal(int total, char tipo, int qtd) {
+        if (total <= 0) {
+            return false;
+        }
+        else {
+            if(tipo == 'E') {
+                return true;
+            }
+            else{
+                if(tipo == 'S' && total > qtd) {
+                    return false;
+                }
+
+                if (tipo == 'S' && total <= qtd) {
+                    return true;
+                }
+                return false;
+            }
+        }
+    }
+
     public boolean atualizarEstoque(Acerto acerto)
     {
         ProdutoModel model = new ProdutoModel();
